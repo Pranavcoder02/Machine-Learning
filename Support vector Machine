@@ -1,4 +1,4 @@
-# 1. Import Libraries
+# 1. Import necessary libraries
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.svm import SVR
