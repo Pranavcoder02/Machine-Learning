@@ -1,18 +1,30 @@
-import json
-import requests
+import requests  # Import the requests library for making HTTP requests
+import json  # Import the json library for parsing JSON data
 
-api_key="e09fcc99749d2e3493dfe0fb989df11f"
-city="kolhapur"
-url=f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+# Set your Open WeatherMap API key
+api_key = "e09fcc99749d2e3493dfe0fb989df11f"
 
-response=requests.get(url)
+# Set the city for which you want to fetch the weather data
+city = "kolhapur"
 
-if response.status_code ==200:
-    data=response.json()
+# Construct the URL for the API request
+url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+
+# Send a GET request to the API
+response = requests.get(url)
+
+# Check if the response was successful (200 OK)
+if response.status_code == 200:
+    # Parse the JSON response
+    data = response.json()
+
+    # Pretty-print the JSON data with indentation
     print(json.dumps(data, indent=5))
 
-    with open("weather_data.json","w")as file:
-        json.dump(data,file,indent=5)
+    # Write the JSON data to a file named "weather_data.json"
+    with open("weather_data.json", "w") as file:
+        json.dump(data, file, indent=5)
 
 else:
-    print(f"Error:{response.status_code}")
+    # Print an error message with the status code if the response was not successful
+    print(f"Error: {response.status_code}")
