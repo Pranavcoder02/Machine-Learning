@@ -1,23 +1,36 @@
+#import necessary libraries
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.cluster.hierarchy import dendrogram, linkage
 
-# Input the number of data points
-data = []
+#get the number of datapoints
 a = int(input("Enter number of datapoints: "))
+
+#reate an empty list to store the datapoints
+data = []
+
+#get each datapoint and store it in the list
 for i in range(a):
     b = int(input(f"Enter data point {i+1}: "))
     data.append(b)
 
+# Convert the list to a numpy array 
+data = np.array(data).reshape(-1, 1)  # and reshape it 
 
-data = np.array(data).reshape(-1, 1)  
+# Perform hierarchical clustering using the single linkage method
 
-Z = linkage(data, method='single')  
+Z = linkage(data, method='single')  # This creates a linkage matrix
 
+# Create a tree like structure to visualize the clustering
 
-plt.figure(figsize=(8, 4))
-dendrogram(Z, labels=data.flatten(), distance_sort='descending')
-plt.title("Hierarchical Clustering Dendrogram")
-plt.xlabel("Data points")
+plt.figure(figsize=(8, 4))  # Set the figure size
+
+dendrogram(Z, labels=data.flatten(), distance_sort='descending')  # Create the tree like structure
+
+plt.title("Hierarchical Clustering ") 
+
+plt.xlabel("Data points") 
+
 plt.ylabel("Distance")
-plt.show()
+
+plt.show() 
