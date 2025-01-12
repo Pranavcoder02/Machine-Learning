@@ -1,0 +1,61 @@
+#concept of list...
+list1 = [1,2,32,4,5,6,7,8,9,10]
+list1.append(11)
+print(list1)
+list1.sort();
+print(list1)
+
+#concept of touple....
+mytuple = ("apple", "banana", "cherry")
+print(mytuple)
+print(type(mytuple))
+print(mytuple[1])
+
+#Dictionary in python...
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)
+print(thisdict["brand"])
+print(len(thisdict))
+
+#set in python...
+thisset = {"apple", "banana", "cherry"}
+thisset.add("orange")
+thisset.add("graps")
+thisset.remove("banana")
+thisset.discard("graps")
+x = thisset.pop()
+thisset.clear()
+del thisset
+print(thisset)
+
+#importing Regular Expression in python for NLP....
+import re
+## (1.1) concept of findall()
+txt = "The rain in Spain"
+x = re.findall("ai", txt)
+print(x)
+
+## (1.2) concept of findall()
+txt = "The rain in Spain"
+x = re.findall("Portugal", txt)
+print(x)
+
+# (2) concept of search()
+txt = "The rain in Spain"
+x = re.search("\s", txt)
+print("The first white-space character is located in position:", x.start())
+
+# (3) Split()
+txt = "The rain in Spain"
+x = re.split("\s", txt)
+print(x)
+
+#Sub()
+txt = "The rain in Spain"
+x = re.sub("\s", "9", txt)
+print(x)
+
